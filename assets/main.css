@@ -468,8 +468,8 @@ html {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  color: #11141c;
+  font-family: Palatino, Georgia, Serif;
+  color: #111;
   font-size: 18px;
 }
 
@@ -478,32 +478,37 @@ a:hover,
 a:visited,
 a:focus,
 a:active {
-  color: #40917f;
+  color: #111;
   text-decoration: none;
   transition-property: border-color;
   border-bottom: 1px solid #fff;
+  transition-property: border-color;
   transition-duration: 500ms;
+  -webkit-transition-property: border-color;
+  -webkit-transition-duration: 500ms;
 }
 a:hover {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #82f1ef;
 }
   
 .sidebar {
   padding: 30px;
-  background-color: #11141C;
+  background-color: #111;
   position: fixed;
   width: 320px;
   bottom: 0;
   top:0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border-right: 3px solid #82f1ef;
 }
 
 .sidebar__title {
-  font-size: 3.125em;
+  font-size: 2.2em;
   font-weight: normal;
-  color: #E7E7E7;
-  font-family: Palatino;
+  text-align: center;
+  font-family: Courier New;
+  margin-top: 21px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .sidebar__title-link,
 .sidebar__title-link:focus,
@@ -516,7 +521,10 @@ a:hover {
 }
 
 .sidebar__description {
-  color: #40917F;
+  font-size: 17px;
+  padding: 30px 20px;
+  font-family: Courier New;
+  background-color: #82f1ef;
 }
 
 .content {
@@ -526,6 +534,7 @@ a:hover {
 
 .page-heading {
   border-bottom: 1px dashed;
+  font-weight: normal;
 }
 
 .post-list {
@@ -538,21 +547,25 @@ a:hover {
 .post-list__title {
   margin-bottom: 10px;
   margin-top: 0px;
+  font-weight: normal;
 }
 .post-list__date {
-  font-family: 'Courier New', monospace;
   font-size: .75em;
+  color: #777;
 }
 
 .post__body blockquote {
   border-left: 10px solid #E4E4E4;
-  font-size: .875em;
+  font-size: .9em;
   font-style: italic;
   margin-left: 0px;
   padding-left: 20px;
 }
 
+.post__title {
+  font-weight: normal;
+}
 .post__meta {
-  font-family: 'Courier New';
   font-size: .875em;
+  color: #777;
 }
