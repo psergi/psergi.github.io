@@ -10,7 +10,7 @@ layout: default
   </header>
 
   <div class="post__body" itemprop="articleBody">
-    {% if page.source && page.author %}
+    {% if page.source and page.author %}
       <div class="post__source">{{ page.source | smartify }}</div>
       <div class="post__author">By {{ page.author | smartify }}</div>
     {% endif %}
