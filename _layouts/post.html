@@ -4,11 +4,16 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post__header">
-    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post__meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}
+    {% if page.categories contains 'Tech' %}<span class="post__category">Tech</span>{% endif %}
+    </h1>
   </header>
 
   <div class="post__body" itemprop="articleBody">
+    {% if page.source && page.author %}
+      <div class="post__source">{{ page.source | smartify }}</div>
+      <div class="post__author">By {{ page.author | smartify }}</div>
+    {% endif %}
     {{ content }}
   </div>
 </article>
