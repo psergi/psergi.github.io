@@ -627,7 +627,7 @@ a:hover {
 
 /* HIGHLIGHTING (github)
  * ----------------------------------------*/
-.highlight {
+pre.highlight {
 	padding: 10px;
 	background: #f8f8f8;
 	border: 1px dashed #a5a5a5;
@@ -695,3 +695,14 @@ a:hover {
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.highlight .no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.highlight .s1 + .go {
+  color: #d01040;
+}

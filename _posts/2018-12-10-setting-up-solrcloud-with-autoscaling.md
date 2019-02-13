@@ -14,21 +14,21 @@ Zookeeper will be used to centralize the configuration across SolrCloud instance
 
 ### Unpack
 
-```
-$ tar xvzf zookeeper-3.4.12.tar.gz
+```terminal
+$ tar -xvzf zookeeper-3.4.12.tar.gz
 ```
 
 ### Config
 
 Create a data directory where zookeeper will store data for the SolrCloud cluster:
 
-```
+```terminal
 $ mkdir /var/lib/zookeeper
 ```
 
 Copy the Zookeeper sample config included in the package to `conf/zoo.cfg`:
 
-```
+```terminal
 $ cd zookeeper-3.4.12
 $ cp conf/zoo_sample.cfg conf/zoo.cfg
 ```
@@ -43,7 +43,7 @@ dataDir=/var/lib/zookeeper
 
 Use the script packaged with Zookeeper to start the service:
 
-```
+```terminal
 $ cd zookeeper-3.4.12
 $ ./bin/zkServer.sh start
 ```
@@ -58,15 +58,15 @@ This will start the Zookeeper service on port 2181 by default.
 
 ### Unpack
 
-```
-$ tar xvzf solr-7.6.0.tgz
+```terminal
+$ tar -xvzf solr-7.6.0.tgz
 ```
 
 ### Start
 
 Use the script packaged with Solr to start the service:
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/solr start -c -z 127.0.0.1:2181
 ```
@@ -90,7 +90,7 @@ And that it is using the correct Zookeeper instance:
 
 Solr comes packaged with a default collection configuration that essentially works as "schemaless", meaning that fields do not need to be explicitly defined and Solr will attempt to guess field types on import. This is the config we are going to use for this setup. Use the built-in Solr script to upload the config set to Zookeeper:
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/solr zk upconfig -d server/solr/configsets/_default -n schemaless -z 127.0.0.1:2181
 ```
@@ -101,7 +101,7 @@ $ ./bin/solr zk upconfig -d server/solr/configsets/_default -n schemaless -z 127
 
 The `solr.xml` file containing global configuration settings will also need to be uploaded to Zookeeper so it can be shared between nodes:
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/solr zk cp server/solr/solr.xml zk:/ -z 127.0.0.1:2181
 ```
@@ -110,7 +110,7 @@ This command is copying the `solr.xml` file from the local `server/solr` directo
 
 ### Create SolrCloud Collection
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/solr create -c products -n schemaless -shards 1 -replicationFactor 2
 ```
@@ -132,7 +132,7 @@ Open your browser to <a href="http://localhost:8983/solr" target="_blank">http:/
 
 We are going to import some of the sample data that comes packaged with Solr so we have something to play with and to verify data is being synchronized between nodes. The JSON format which Solr accepts is just an array of objects so if you have your own data feel free to use that.
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/post -c products -h localhost -p 8983 example/exampledocs/books.json
 ```
@@ -155,8 +155,9 @@ SolrCloud can be configured to take actions when certain events are triggered. T
 
 First we need to set some rules that nodes within the cluster must meet:
 
-```
-$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary '{
+```terminal?prompt=$
+$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary \
+'{
   "set-cluster-policy": [
     { "replica": "2","shard": "#EACH", "node": "#ANY" }
   ]
@@ -169,8 +170,9 @@ This configures the cluster to maintain 2 replicas of each shard on all nodes.
 
 Next we add a trigger for when a new node is added to the cluster:
 
-```
-$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary '{
+```terminal
+$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary \
+'{
   "set-trigger": {
     "name": "node_added_trigger",
     "event": "nodeAdded",
@@ -184,7 +186,7 @@ This trigger will listen for a `nodeAdded` event and upon 5 seconds of receiving
 
 Let try adding a new node:
 
-```
+```terminal
 $ mkdir /tmp/solr
 $ cd solr-7.6.0
 $ ./bin/solr start -c -p 8984 -s /tmp/solr -z 127.0.0.1:2181
@@ -207,8 +209,9 @@ Open your browser to <a href="http://localhost:8983/solr" target="_blank">http:/
 
 Now we want to add a trigger for when a node is removed from the cluster so that the cluster can be both scaled up and scaled down:
 
-```
-$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary '{
+```terminal
+$ curl -X POST "http://localhost:8983/solr/admin/autoscaling" --data-binary \
+'{
   "set-trigger": {
     "name": "node_lost_trigger",
     "event": "nodeLost",
@@ -222,7 +225,7 @@ This trigger will listen for a `nodeLost` event and upon 120 seconds of receivin
 
 Let's try stopping a running node:
 
-```
+```terminal
 $ cd solr-7.6.0
 $ ./bin/solr stop -p 8984
 ```
