@@ -2,6 +2,7 @@
 layout: post
 title: Setting Up SolrCloud with Autoscaling
 categories: [Tech]
+date: 2019-02-24
 ---
 
 ## Zookeeper Setup
