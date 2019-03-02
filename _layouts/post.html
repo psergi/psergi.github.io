@@ -9,7 +9,7 @@ layout: default
     </h1>
   </header>
 
-  <div class="post__body" itemprop="articleBody">
+  <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}" itemprop="articleBody">
     {% if page.source and page.author %}
       <div class="post__source">{{ page.source | smartify }}</div>
       <div class="post__author">By {{ page.author | smartify }}</div>

@@ -556,10 +556,12 @@ a:hover {
 }
 .post-list__title::before {
   content: "»";
+  margin-left: -15px;
 }
 .post-list__title {
   margin-bottom: 20px;
   margin-top: 0px;
+  font-size: 27px;
   font-weight: normal;
 }
 .post-list__date {
@@ -586,7 +588,7 @@ a:hover {
 }
 .post__body img {
   max-width: 100%;
-  border: 10px solid #e7e7e7;
+  border: 10px solid #E0E1E5;
 }
 .post__body table {
   border-collapse: collapse;
@@ -598,7 +600,7 @@ a:hover {
 }
 .post__body p > code {
   font-size: .8em;
-  background: #f8f8f8;
+  background: #F3F4F8;
 }
 .post__source {
   font-weight: bold;
@@ -625,14 +627,60 @@ a:hover {
   border-radius: 4px;
 }
 
+@media only screen and (max-width: 1024px){
+  .sidebar {
+    width: 100%;
+    min-height: 240px;
+    position: static;
+    text-align: center;
+    border-right: 0px;
+    border-bottom: 3px solid #82f1ef;
+  }
+  .sidebar__title {
+    margin-top: 0px;
+  }
+  .sidebar__description {
+    padding: 20px 20px;
+  }
+  .content {
+    margin-left: 0px;
+  }
+  .post__body {
+    max-width: none;
+  }
+  .page-heading {
+    margin-top: 0px;
+  }
+  .post__title {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .content {
+    padding: 30px 20px;
+  }
+  .post-list {
+    padding-left: 5px;
+  }
+  .post-list__title {
+    font-size: 20px;
+  }
+  .post__body {
+    font-size: 14px;
+  }
+  .post__body--tech {
+    text-align: left;
+  }
+}
+
 /* HIGHLIGHTING (github)
  * ----------------------------------------*/
 pre.highlight {
-	padding: 10px;
-	background: #f8f8f8;
-	border: 1px dashed #a5a5a5;
+  padding: 15px;
+  background: #F3F4F8;
   font-size: .8em;
   overflow-y: scroll;
+  border-left: 10px solid #E0E1E5;
 }
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
