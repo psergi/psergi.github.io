@@ -671,6 +671,9 @@ a:hover {
   .post__body--tech {
     text-align: left;
   }
+  .post__body ol {
+    padding-left: 25px;
+  }
 }
 
 /* HIGHLIGHTING (github)
