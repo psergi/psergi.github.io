@@ -38,9 +38,9 @@ p rest
 When used with an array, each of the array elements will be treated as an individual argument (similar to Javascript's Spread):
 
 ```ruby
-arr = [1, 2, 3]
-new_arr = [0, *arr]
-p new_arr
+ids = [1, 2, 3]
+new_ids = [0, *ids]
+p new_ids
 # [0, 1, 2, 3]
 ```
 
@@ -107,7 +107,7 @@ p attrs
 
 ### Variable Keyword Arguments
 
-Methods defined with keyword arguments will raise an error if they receive any other options besides those that are defined. A way around this is to use a double-splat to capture any undefined arguments passed and collect them into a hash:
+Methods defined with keyword arguments will raise an error if they receive any other options besides those that are defined. A way to make these methods more flexible is to use a double-splat to capture any undefined arguments passed and collect them into a hash:
 
 ```ruby
 def format_transaction(amount:, type:, **options)
