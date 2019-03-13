@@ -29,7 +29,7 @@ $ npm install --save redux
 
 ## Create a Redux Store
 
-Modify your `index.js` file to create a store to be used with the app and a reducer that will process action updates:
+Modify your `index.js` file to create a Redux store to be used with the app and a reducer that will process action updates:
 
 ```jsx
 import React from 'react';
@@ -104,13 +104,13 @@ The `Root` component takes in the Redux store as a prop and maps the current sta
 
 Next we make use of the `useEffect` hook to add a change listener to the Redux store that will update the `Root` component's state with the current state of the store. By default effects run each time the component renders, however you can pass in an optional second argument as an array of values where if none of these values change the effect will not run. In our case we passed the `store` prop causing the effect to only run on initial mount. See [here](https://reactjs.org/docs/hooks-effect.html) for details on `useEffect`.
 
-Finally we import our `Context` object and wrap our app in the `Context.Provider` component passing in a value of the store's current state as well as a reference to the store's `dispatch` method.
+Finally we import our `Context` object and wrap our app in the `<Context.Provider>` component passing in a value of the store's current state as well as a reference to the store's `dispatch` method.
 
-The `Context.Provider` component broadcasts its value down the tree making it available to any child components who need it.
+The `<Context.Provider>` component broadcasts its value down the tree making it available to any child components who need it.
 
 ## Connect the Root Component
 
-Next we need to update our `index.js` file to render the `Root` component instead of the `App`, passing in the Redux store as a prop.
+Next we need to update our `index.js` file to render the `<Root>` component instead of `<App>`, passing in the Redux store as a prop.
 
 ```jsx
 import React from 'react';
@@ -192,7 +192,7 @@ First we are setting up a local state variable to sync the current value of the 
 ```jsx
 const { state, dispatch } = useContext(Context);
 ```
-Next we use the `useContext` hook passing in the `Context` object we setup in our `Context.js` file. The return value of the `useContext` is the current value of the `<Context.Provider>`. If you recall we are setting this in our `Root` component to an object with `state` and `dispatch` keys referencing the current state of the store and the store's `dispatch` method. We are destructing these two values into local variables.
+Next we use the `useContext` hook passing in the `Context` object we setup in our `Context.js` file. The return value of the `useContext` is the current value of the `<Context.Provider>`. If you recall we are setting this in our `Root` component to an object with `state` and `dispatch` keys referencing the current state of the store and the store's `dispatch` method. We are destructuring these two values into local variables.
 <br/><br/>
 
 ```jsx
@@ -238,7 +238,7 @@ return (
 ```
 {% endraw %}
 
-Finally we return some JSX and hook up all our events for the input. We have a header with text "Item List", an input to add new items and then a list which renders out each item within the `items` array retrieved from the state.
+Finally we return some JSX and hook up all our events for the input. We have a header with text "Item List", an input box to add new items and then a list which renders out each item within the `items` array retrieved from the state.
 
 ## Putting It All Together
 
