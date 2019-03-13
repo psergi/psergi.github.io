@@ -573,6 +573,11 @@ a:hover {
   max-width: 675px;
   text-align: justify;
 }
+.post__body h5 {
+  background: #eae4d4;
+  padding: 10px;
+  font-weight: normal;
+}
 .post__body a {
   text-decoration: underline;
 }
@@ -601,6 +606,7 @@ a:hover {
 .post__body p > code {
   font-size: .8em;
   background: #F3F4F8;
+  padding: 1px 3px;
 }
 .post__source {
   font-weight: bold;
