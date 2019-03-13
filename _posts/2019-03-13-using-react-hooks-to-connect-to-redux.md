@@ -276,7 +276,7 @@ You should be presented with the Item List and an input box allowing you to add 
 
 ## Conclusion
 
-It works! This way of accessing the Redux store is extremely clean and intuitive compared to the `connect` method provided with React Redux and could become even more so with the use of [Custom Hooks](https://reactjs.org/docs/hooks-custom.html). However there seem to be some performance issues that need to be sorted out before this approach becomes the norm (see [here](https://github.com/reduxjs/react-redux/issues/1177)).
+It works! This way of accessing the Redux store is extremely clean and intuitive compared to the `connect` method provided by React Redux and could become even more so with the use of [Custom Hooks](https://reactjs.org/docs/hooks-custom.html). However there seem to be some performance issues that need to be sorted out before this approach becomes the norm (see [here](https://github.com/reduxjs/react-redux/issues/1177)).
 
 ### Further Reading
 
