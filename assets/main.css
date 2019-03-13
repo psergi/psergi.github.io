@@ -545,6 +545,9 @@ a:hover {
   padding-top: 40px;
   text-align: center;
 }
+.content__footer--post {
+  max-width: 675px;
+}
 .contact-box {
   font-family: courier new;
   background: #000;
@@ -671,6 +674,9 @@ a:hover {
     margin-left: 0px;
   }
   .post__body {
+    max-width: none;
+  }
+  .content__footer--post {
     max-width: none;
   }
   .page-heading {
