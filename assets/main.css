@@ -630,6 +630,11 @@ a:hover {
   background: #F3F4F8;
   padding: 1px 3px;
 }
+.post__note {
+  font-size: .8em;
+  font-style: italic;
+  margin-top: -10px;
+}
 .post__source {
   font-weight: bold;
 }
