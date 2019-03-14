@@ -247,6 +247,7 @@ DEPENDENCIES
   github-pages
   jekyll (= 3.7.4)
   jekyll-compose
+  jekyll-sitemap
 
 RUBY VERSION
    ruby 2.5.0p0
