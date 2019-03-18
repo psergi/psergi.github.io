@@ -7,7 +7,7 @@ categories: [Tech]
 note: 'March 13th, 2019'
 ---
 
-##### **NOTE:** This is a proof of concept and not intended for production use.
+##### **NOTE:** This is a proof of concept and has not been optimized for production use.
 
 ## Preface
 
