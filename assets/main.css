@@ -607,11 +607,28 @@ a:hover {
   border-bottom: 3px solid transparent;
 }
 .post__body blockquote {
-  border-left: 10px solid #E4E4E4;
-  font-size: .9em;
-  font-style: italic;
+  border-left: 10px solid #eae4d4;
   margin-left: 0px;
-  padding-left: 20px;
+  padding: 20px 35px 20px 60px;
+  margin-top: 30px;
+  margin-right: 0px;
+}
+.post__body blockquote > p {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  position: relative;
+}
+.post__body blockquote > p > code {
+  background: none;
+  font-size: .9em;
+  position: absolute;
+  left: -32px;
+}
+.post__body blockquote cite {
+  display: inline-block;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-left: -17px;
 }
 .post__body img {
   max-width: 100%;
