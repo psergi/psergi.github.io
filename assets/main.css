@@ -626,9 +626,11 @@ a:hover {
 }
 .post__body blockquote cite {
   display: inline-block;
-  font-size: 1.2em;
+  font-size: .95em;
   margin-top: 10px;
   margin-left: -17px;
+  font-style: normal;
+  letter-spacing: 2px;
 }
 .post__body img {
   max-width: 100%;
