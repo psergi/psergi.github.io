@@ -737,7 +737,6 @@ pre.highlight {
   padding: 15px;
   background: #F3F4F8;
   font-size: .8em;
-  overflow-y: scroll;
   border-left: 10px solid #E0E1E5;
 }
 .highlight .hll { background-color: #ffffcc }
