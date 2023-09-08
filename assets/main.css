@@ -606,6 +606,9 @@ a:hover {
 .post__body a:hover {
   border-bottom: 3px solid transparent;
 }
+.post__body li {
+  text-align: left;
+}
 .post__body blockquote {
   border-left: 10px solid #eae4d4;
   margin-left: 0px;
