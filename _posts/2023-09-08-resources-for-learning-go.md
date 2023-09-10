@@ -34,6 +34,6 @@ Below is a collection of links I have gathered as I have been learning Go. I pla
 - [Go Test Comments](https://github.com/golang/go/wiki/TestComments) - A collection of common comments made during reviews of Go test code.
 
 ## Other Topics
-- [Enums](https://www.sohamkamani.com/golang/enums/)
-- [Context](https://go.dev/blog/context)
-- [Linting](https://golangci-lint.run/)
+- [Enums](https://www.sohamkamani.com/golang/enums/) - Different ways of implementing enums in Go
+- [Context](https://go.dev/blog/context) - Thinking differently when concurrency is the default.
+- [Linting](https://golangci-lint.run/) - A very fast, easy to use linting tool bringing together all of the best linters available in the community.
