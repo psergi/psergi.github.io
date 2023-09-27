@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Resources for Learning Go
-note: September 8th, 2023
+note: "September 8th, 2023 (Last Updated: 9/27/2023)"
 categories:
-- Tech
-- Go
+  - Tech
+  - Go
 date: 2023-09-08 15:29 -0700
 ---
 Below is a collection of links I have gathered as I have been learning Go. I plan to keep this updated as the learning continues...
@@ -15,6 +15,7 @@ Below is a collection of links I have gathered as I have been learning Go. I pla
 - [50 Shades of Go](https://golang50shad.es/) - Traps, gotchas, and common mistakes for new Go developers.
 
 ## Project Structure
+- [Organizing a Go module](https://go.dev/doc/modules/layout) - Official guidelines for organizing your Go project, in terms of the layout of files and folders.
 - [Structuring Applications in Go](https://www.gobeyond.dev/structuring-applications/) - Basic guidelines for structuring your Go application.
 - [Standard Package Layout](https://www.gobeyond.dev/standard-package-layout/) - How should I organize my code?
 - [Packages as Layers, Not Groups](https://www.gobeyond.dev/packages-as-layers/) - Why packages in Go are different, more guidance on organizing your application.
