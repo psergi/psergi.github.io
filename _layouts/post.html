@@ -4,9 +4,8 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post__header">
-    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}
+    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
     {% if page.categories contains 'Tech' %}<span class="post__category">Tech</span>{% endif %}
-    </h1>
   </header>
 
   <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}" itemprop="articleBody">

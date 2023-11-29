@@ -654,6 +654,13 @@ a:hover {
   background: #F3F4F8;
   padding: 1px 3px;
 }
+.post__header {
+  display: flex;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #0F1C2A;
+}
 .post__note {
   font-size: .8em;
   font-style: italic;
@@ -669,16 +676,16 @@ a:hover {
 }
 .post__title {
   font-weight: normal;
-  padding-bottom: 15px;
-  border-bottom: 1px dashed #0F1C2A;
+  margin: 0px;
 }
 .post__category {
 	font-size: 12px;
-	margin-left: 10px;
+	margin-left: 15px;
 	background: #0f1c2a;
 	padding: 2px 5px;
 	vertical-align: middle;
-  color: #fff;
+	align-self: center;
+	color: #fff;
 	letter-spacing: 1px;
 	font-family: courier new;
   border-radius: 4px;
