@@ -558,7 +558,7 @@ If there was an issue you can usually find details of the problem using the `kub
 
 ## Finishing Up
 
-We now have a full configured cluster setup with `ingress-nginx` for domain routing and `cert-manager` for managing SSL/TLS certificates.
+We now have a fully configured cluster setup with `ingress-nginx` for domain routing and `cert-manager` for managing SSL/TLS certificates.
 
 We only deployed a single website in this tutorial but you we can add additional sites to the cluster very easily by repeating the previous section.
 
