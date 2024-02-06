@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Understanding Ruby's Symbol/Block Syntax
-categories: [Tech]
+categories:
+  - Tech
+  - Ruby
 date: 2018-12-10
 ---
 

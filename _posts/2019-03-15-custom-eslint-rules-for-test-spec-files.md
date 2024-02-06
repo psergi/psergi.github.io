@@ -3,8 +3,9 @@ layout: post
 title: Custom ESLint Rules For Test/Spec Files
 source: 
 author: 
-categories: [Tech]
-note: 'March 15th, 2019'
+categories:
+  - Tech
+  - JavaScript
 ---
 
 ESLint allows you to override rules for a specific directory by adding an additional `.eslint.js` file to that directory, but what if your specs live within the same directory as your source?

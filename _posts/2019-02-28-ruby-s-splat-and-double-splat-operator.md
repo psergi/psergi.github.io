@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Ruby's Splat and Double-Splat Operators
-categories: [Tech]
+categories:
+  - Tech
+  - Ruby
 date: 2018-12-14
 ---
 

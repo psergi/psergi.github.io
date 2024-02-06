@@ -3,7 +3,8 @@ layout: post
 title: Thy Word Have I Hid in Mine Heart
 source: Excerpt from "The Complete Works of Thomas Brooks Vol. 1"
 author: Thomas Brooks (1608-1680)
-categories: []
+categories:
+  - Christianity
 ---
 
 Dear Friend! – Solomon bids us buy the truth (Prov. xxiii. 23), but doth not tell us what it must cost, because we must get it though it be never so dear. We must love it both shining and scorching. Every parcel of truth is precious, as the filings of gold; we must either live with it, or die for it. As Ruth said to Naomi, 'Whither thou goest I will go, and where thou lodgest I will lodge, and nothing but death shall part thee and me,' Ruth i. 16, 17; so must gracious spirits say, Where truth goes I will go, and where truth lodges I will lodge, and nothing but death shall part me and truth. A man may lawfully sell his house, land, and jewels, but truth is a jewel that exceeds all price, and must not be sold; it is our heritage: 'Thy testimonies have I taken as an heritage for ever,' Ps. cxix. 111. It is a legacy that our forefathers have bought with their bloods, which should make us willing to lay down anything, and to lay out anything, that we may, with the wise merchant in the Gospel (Mat. xiii. 45), purchase this precious pearl, which is more worth than heaven and earth, and which will make a man live happily, die comfortably, and reign eternally.

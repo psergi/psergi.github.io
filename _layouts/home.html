@@ -8,10 +8,15 @@ layout: default
 <ul class="post-list">
   {% for post in site.posts %}
     <li class="post-list__item">
-      <h2 class="post-list__title">
-        <a class="post-list__link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        {% if post.categories contains 'Tech' %}<span class="post__category">Tech</span>{% endif %}
-      </h2>
+      <div class="post-list__date">{{ post.date | date_to_long_string: "ordinal", "US" }}</div>
+      <a class="post-list__link" href="{{ post.url | relative_url }}">
+        <h2 class="post-list__title">{{ post.title | escape }}</h2>
+      </a>
+      <div class="post-list__categories">
+        {% for category in post.categories %}
+        <div class="post__category">{{ category }}</div>
+        {% endfor %}
+      </div>
     </li>
   {% endfor %}
 </ul>

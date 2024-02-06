@@ -3,6 +3,8 @@ layout: post
 title: Of The Law and A Christian by John Bunyan
 source: Of The Law and A Christian
 author: John Bunyan (1628-1688)
+categories:
+  - Christianity
 ---
 
 The law was given twice upon Mount Sinai, but the appearance of the Lord, when he gave it the second time, was wonderfully different from that of his, when at the first he delivered it to Israel.

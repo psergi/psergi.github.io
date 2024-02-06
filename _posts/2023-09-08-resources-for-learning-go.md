@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Resources for Learning Go
-note: "September 8th, 2023 (Last Updated: 9/27/2023)"
+note: "(Last Updated: 9/27/2023)"
 categories:
   - Tech
   - Go

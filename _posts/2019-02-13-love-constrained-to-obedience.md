@@ -3,6 +3,8 @@ layout: post
 title: Love Constrained to Obedience
 source: Love Constrained to Obedience
 author: William Cowper (1731-1800)
+categories:
+  - Christianity
 ---
 
 No strength of nature can suffice  
