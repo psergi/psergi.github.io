@@ -7,7 +7,7 @@ categories:
 - Kubernetes
 date: 2024-02-06 07:43 -0800
 ---
-This tutorial outlines how to setup a Kubernetes cluster on Digital Ocean, and how to deploy and secure an website on that cluster with Ingress-NGINX and Let's Encrypt.
+This tutorial outlines how to setup a Kubernetes cluster on Digital Ocean, and how to deploy and secure a website on that cluster with Ingress-NGINX and Let's Encrypt.
 ## Prerequisites
 
 - Digital Ocean account
