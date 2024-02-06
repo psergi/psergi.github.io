@@ -577,7 +577,7 @@ a:active {
 .post-list__item {
   list-style: none;
   padding-bottom: 25px;
-  border-bottom: 1px solid #f0eaea;
+  border-bottom: 1px solid #d9dde8;
 }
 .post-list__date {
   font-size: 12px;
