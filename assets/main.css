@@ -619,6 +619,9 @@ a:active {
 .post__body b {
   font-weight: 500;
 }
+.post__body ul ul {
+  padding-left: 20px;
+}
 .post__body li {
   text-align: left;
   margin-bottom: 5px;
@@ -745,7 +748,7 @@ a:active {
     padding-left: 5px;
   }
   .post-list__title {
-    font-size: 20px;
+    font-size: 24px;
   }
   .post__body {
     font-size: 16px;
