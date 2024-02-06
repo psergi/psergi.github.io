@@ -560,7 +560,7 @@ If there was an issue you can usually find details of the problem using the `kub
 
 We now have a fully configured cluster setup with `ingress-nginx` for domain routing and `cert-manager` for managing SSL/TLS certificates.
 
-We only deployed a single website in this tutorial but you we can add additional sites to the cluster very easily by repeating the previous section.
+In this tutorial we only deployed a single website, however we can very easily add additional sites to the cluster by repeating the previous section.
 
 We just need to update our DNS for the new domain to point to the load balancer IP, and then follow the steps from the "Configure and Deploy Your Website" section with the new domain name and everything should just work.
 
