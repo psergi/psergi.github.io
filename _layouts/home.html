@@ -14,7 +14,10 @@ layout: default
       </a>
       <div class="post-list__categories">
         {% for category in post.categories %}
-        <div class="post__category">{{ category }}</div>
+        <div class="post__category">
+          <div class="post__category-icon post__category-icon--{{ category | downcase }}"></div>
+          <div class="post__category-name">{{ category }}</div>
+        </div>
         {% endfor %}
       </div>
     </li>

@@ -593,7 +593,7 @@ a:active {
 }
 .post-list__categories {
   display: flex;
-  margin-top: 4px;
+  margin-top: 8px;
   gap: 4px;
 }
 
@@ -701,11 +701,42 @@ a:active {
   font-weight: normal;
   margin: 0px;
 }
+.post__category-icon {
+  height: 7px;
+  width: 7px;
+  border-radius: 8px;
+  margin-right: 4px;
+}
+.post__category-icon--christianity {
+  width: 7px;
+  height: 9px;
+  border-radius: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='7' height='9' viewBox='0 0 7 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 2V0.5H4.5V2V2.5H5H6.5V4.5H5H4.5V5V8.5H2.5V5V4.5H2H0.5V2.5H2H2.5V2Z' fill='%23FFFFFF' stroke='%23787878'/%3E%3C/svg%3E");
+}
+.post__category-icon--tech {
+  background: #606060;
+}
+.post__category-icon--kubernetes {
+  background: #316CE6;
+}
+.post__category-icon--go {
+  background: #79D4FD;
+}
+.post__category-icon--javascript {
+  background: #F7DF1E;
+}
+.post__category-icon--solr {
+  background: #D9411E;
+}
+.post__category-icon--ruby {
+  background: #8A0F07;
+}
 .post__category {
+  display: flex;
+  align-items: center;
 	font-size: 12px;
-	background: #f3f3f3;
+	background: none;
 	padding: 4px 8px;
-	vertical-align: middle;
 }
 
 @media only screen and (max-width: 1024px){

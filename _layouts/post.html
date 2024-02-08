@@ -8,7 +8,10 @@ layout: default
     <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
     <div class="post__categories">
       {% for category in page.categories %}
-      <div class="post__category">{{ category }}</div>
+      <div class="post__category">
+        <div class="post__category-icon post__category-icon--{{ category | downcase }}"></div>
+        <div class="post__category-name">{{ category }}</div>
+      </div>
       {% endfor %}
     </div>
   </header>
