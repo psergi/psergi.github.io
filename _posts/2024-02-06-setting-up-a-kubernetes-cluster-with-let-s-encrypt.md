@@ -132,7 +132,7 @@ kubernetes-ingress-nginx/ingress-nginx \
 -f ingress-nginx.yml
 ```
 
-This tells helm to install version `4.9.1` of the `kubernetes-ingress-nginx/ingress-nginx` package within the `ingress-nginx` namespace, and to apply our `ingress-nginx.yml` configuration file. The first `ingress-nginx` param is the name of the "release" which allows us to reference this installation as a whole.
+This tells helm to install chart version `4.9.1` of the `kubernetes-ingress-nginx/ingress-nginx` package within the `ingress-nginx` namespace, and to apply our `ingress-nginx.yml` configuration file. The first `ingress-nginx` param is the name of the "release" which allows us to reference this installation as a whole.
 
 The command might take a few seconds to complete, but if successful you should see something similar to this:
 
@@ -207,15 +207,15 @@ The `jetstack/cert-manager` package is the one we are looking for, the chart ver
 Using these values run the following command to install the `jetstack/cert-manager` package into your cluster:
 
 ```bash
-helm install \
-  cert-manager jetstack/cert-manager \
+helm install cert-manager \
+  jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --version v1.14.1 \
   --set installCRDs=true
 ```
 
-This tells helm to install version `v.1.14.1` of the `jetstack/cert-manager` package within the `cert-manager` namespace, and to install the required CRDs (custom resource definitions). The first `cert-manager` param is the name of the "release" which allows us to reference this installation as a whole.
+This tells helm to install chart version `v.1.14.1` of the `jetstack/cert-manager` package within the `cert-manager` namespace, and to install the required CRDs (custom resource definitions). The first `cert-manager` param is the name of the "release" which allows us to reference this installation as a whole.
 
 The command might take a few seconds to complete, but if successful you should see something similar to this:
 
