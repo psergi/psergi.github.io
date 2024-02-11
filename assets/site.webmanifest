@@ -29,7 +29,7 @@
       "form_factor": "narrow"
     }
   ],
-  "theme_color":"#ffffff",
-  "background_color":"#ffffff",
+  "theme_color":"#0F1C2A",
+  "background_color":"#0F1C2A",
   "display":"standalone"
 }
