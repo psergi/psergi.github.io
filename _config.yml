@@ -1,5 +1,6 @@
 # Site settings {{ site.title }}
-title: phil.sergi
+title: Phil Sergi
+header: phil.sergi
 description: "A mix of timeless Christian truth and transient technology posts."
 url: "https://philsergi.com"
 quote: >
