@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post">
 
   <header class="post__header">
     <div class="post__date">{{ page.date | date_to_long_string: "ordinal", "US" }}</div>
-    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <h1 class="post__title">{{ page.title | escape }}</h1>
     <div class="post__categories">
       {% for category in page.categories %}
       <div class="post__category">
@@ -16,7 +16,7 @@ layout: default
     </div>
   </header>
 
-  <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}" itemprop="articleBody">
+  <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}">
     {% if page.last_modified_at %}
       <div class="post__last-modified">(Last Updated: {{ page.last_modified_at | date_to_string: "ordinal", "US" }})</div>
     {% endif %}
