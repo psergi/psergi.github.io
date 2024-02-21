@@ -18,6 +18,8 @@ jekyll_compose:
 # Build settings
 permalink: :title
 markdown: kramdown
+kramdown:
+  toc_levels: 2..2
 exclude:
   - Gemfile
   - Gemfile.lock

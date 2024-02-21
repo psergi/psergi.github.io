@@ -601,6 +601,19 @@ a:active {
   gap: 4px;
 }
 
+.toc__header {
+  font-size: 1.17em;
+  font-weight: 500;
+  border-top: 1px solid #d9dde8;
+  padding-top: 16px;
+  margin-top: 24px;
+}
+#markdown-toc {
+  font-size: 16px;
+  border-bottom: 1px solid #d9dde8;
+  padding-bottom: 20px;
+}
+
 .post__body {
   max-width: 675px;
   text-align: justify;
@@ -670,9 +683,11 @@ a:active {
   padding: 8px 10px;
   border: 1px solid #ccc;
 }
-.post__body p > code {
+.post__body p > code,
+.post__body li > code {
   font-size: .8em;
   background: #F3F4F8;
+  background: #EFF1F7;
   padding: 1px 3px;
 }
 .post__header {
