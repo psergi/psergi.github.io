@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Using React Hooks to Connect to Redux
-source: 
-author: 
 categories:
   - Tech
   - JavaScript

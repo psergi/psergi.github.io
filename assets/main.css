@@ -704,7 +704,7 @@ a:active {
   margin-top: 8px;
   gap: 4px;
 }
-.post__note {
+.post__last-modified {
   font-size: .8em;
   font-style: italic;
 }

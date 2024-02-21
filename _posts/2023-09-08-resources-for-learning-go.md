@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Resources for Learning Go
-note: "(Last Updated: 9/27/2023)"
 categories:
   - Tech
   - Go
 date: 2023-09-08 15:29 -0700
+last_modified_at: 2023-09-27
 ---
 Below is a collection of links I have gathered as I have been learning Go. I plan to keep this updated as the learning continues...
 ## Getting Started

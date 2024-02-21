@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Setting Up a Kubernetes Cluster with Let's Encrypt
-note:
 categories:
-- Tech
-- Kubernetes
+  - Tech
+  - Kubernetes
 date: 2024-02-06 07:43 -0800
 ---
 This tutorial outlines how to setup a Kubernetes cluster on Digital Ocean, and how to deploy and secure a website on that cluster with Ingress-NGINX and Let's Encrypt.

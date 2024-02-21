@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Custom ESLint Rules For Test/Spec Files
-source: 
-author: 
 categories:
   - Tech
   - JavaScript

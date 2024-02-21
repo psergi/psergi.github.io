@@ -1,8 +1,6 @@
 ---
 layout: post
 title: The Living Word
-source: 
-author: 
 categories:
   - Christianity
 ---

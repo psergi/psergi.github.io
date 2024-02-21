@@ -17,8 +17,8 @@ layout: default
   </header>
 
   <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}" itemprop="articleBody">
-    {% if page.note %}
-      <div class="post__note">{{ page.note }}</div>
+    {% if page.last_modified_at %}
+      <div class="post__last-modified">(Last Updated: {{ page.last_modified_at | date_to_string: "ordinal", "US" }})</div>
     {% endif %}
     {% if page.source and page.author %}
       <div class="post__source">{{ page.source | smartify }}</div>
