@@ -5,6 +5,7 @@ categories:
   - Tech
   - Kubernetes
 date: 2024-02-06 07:43 -0800
+last_modified_at: 2024-03-19
 ---
 This tutorial outlines how to setup a Kubernetes cluster on Digital Ocean, and how to deploy and secure a website on that cluster with Ingress-NGINX and Let's Encrypt.
 
@@ -95,10 +96,10 @@ This should produce an output similar to this:
 
 ```bash
 NAME                                  	CHART VERSION	APP VERSION	DESCRIPTION
-kubernetes-ingress-nginx/ingress-nginx	4.9.1        	1.9.6      	Ingress controller for Kubernetes using NGINX a...
+kubernetes-ingress-nginx/ingress-nginx	4.10.0       	1.10.0     	Ingress controller for Kubernetes using NGINX a...
 ```
 
-The package name and the chart version is what we are looking for, in this case it is `kubernetes-ingress-nginx/ingress-nginx` and `4.9.1`. Take note of these values, we will be using them in the install command shortly.
+The package name and the chart version is what we are looking for, in this case it is `kubernetes-ingress-nginx/ingress-nginx` and `4.10.0`. Take note of these values, we will be using them in the install command shortly.
 
 Before we install the ingress controller we need to customize some configuration values. Create a new `ingress-nginx.yml` file with the following:
 
@@ -128,20 +129,20 @@ Now we are ready to install the controller, run the following command to install
 
 ```bash
 helm install ingress-nginx \
-kubernetes-ingress-nginx/ingress-nginx \
---version=4.9.1 \
---namespace ingress-nginx \
---create-namespace \
--f ingress-nginx.yml
+  kubernetes-ingress-nginx/ingress-nginx \
+  --version=4.10.0 \
+  --namespace ingress-nginx \
+  --create-namespace \
+  -f ingress-nginx.yml
 ```
 
-This tells helm to install chart version `4.9.1` of the `kubernetes-ingress-nginx/ingress-nginx` package within the `ingress-nginx` namespace, and to apply our `ingress-nginx.yml` configuration file. The first `ingress-nginx` param is the name of the "release" which allows us to reference this installation as a whole.
+This tells helm to install chart version `4.10.0` of the `kubernetes-ingress-nginx/ingress-nginx` package within the `ingress-nginx` namespace, and to apply our `ingress-nginx.yml` configuration file. The first `ingress-nginx` param is the name of the "release" which allows us to reference this installation as a whole.
 
 The command might take a few seconds to complete, but if successful you should see something similar to this:
 
 ```bash
 NAME: ingress-nginx
-LAST DEPLOYED: Sat Feb  3 06:21:02 2024
+LAST DEPLOYED: Tue Mar 19 08:49:51 2024
 NAMESPACE: ingress-nginx
 STATUS: deployed
 REVISION: 1
@@ -165,7 +166,7 @@ The output should give you something similar to the following:
 
 ```bash
 ID                                      IP                Name                                Status    Created At
-743de9eb-e2bb-4a8f-bcea-af44c069740a    12.123.12.123     kbTnLcEEcXrd9B9HkbTnLcEEcXrd9B9H    active    2024-02-01T14:25:19Z
+743de9eb-e2bb-4a8f-bcea-af44c069740a    12.123.12.123     kbTnLcEEcXrd9B9HkbTnLcEEcXrd9B9H    active    2024-03-19T15:50:19Z
 ```
 
 If the IP is not yet available, wait a few minutes and try again. The IP address returned is what we will use to configure our DNS. 
@@ -195,17 +196,17 @@ This should produce an output similar to this:
 
 ```bash
 NAME                                   	CHART VERSION	APP VERSION	DESCRIPTION                                       
-jetstack/cert-manager                  	v1.14.1      	v1.14.1    	A Helm chart for cert-manager                     
-jetstack/cert-manager-approver-policy  	v0.12.1      	v0.12.1    	approver-policy is a CertificateRequest approve...
-jetstack/cert-manager-csi-driver       	v0.7.0       	v0.7.0     	cert-manager-csi-driver enables issuing secretl...
-jetstack/cert-manager-csi-driver-spiffe	v0.4.1       	v0.4.1     	csi-driver-spiffe is a Kubernetes CSI plugin wh...
+jetstack/cert-manager                  	v1.14.4      	v1.14.4    	A Helm chart for cert-manager
+jetstack/cert-manager-approver-policy  	v0.13.0      	v0.13.0    	approver-policy is a CertificateRequest approve...
+jetstack/cert-manager-csi-driver       	v0.7.1       	v0.7.1     	cert-manager csi-driver enables issuing secretl...
+jetstack/cert-manager-csi-driver-spiffe	v0.5.0       	v0.5.0     	csi-driver-spiffe is a Kubernetes CSI plugin wh...
 jetstack/cert-manager-google-cas-issuer	v0.8.0       	v0.8.0     	A Helm chart for jetstack/google-cas-issuer       
-jetstack/cert-manager-istio-csr        	v0.8.0       	v0.8.0     	istio-csr enables the use of cert-manager for i...
+jetstack/cert-manager-istio-csr        	v0.8.1       	v0.8.1     	istio-csr enables the use of cert-manager for i...
 jetstack/cert-manager-trust            	v0.2.1       	v0.2.0     	DEPRECATED: The old name for trust-manager. Use...
-jetstack/trust-manager                 	v0.8.0       	v0.8.0     	trust-manager is the easiest way to manage TLS ...
+jetstack/trust-manager                 	v0.9.1       	v0.9.1     	trust-manager is the easiest way to manage TLS ...
 ```
 
-The `jetstack/cert-manager` package is the one we are looking for, the chart version in this case is `v.1.14.1`.
+The `jetstack/cert-manager` package is the one we are looking for, the chart version in this case is `v.1.14.4`.
 
 Using these values run the following command to install the `jetstack/cert-manager` package into your cluster:
 
@@ -214,23 +215,23 @@ helm install cert-manager \
   jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.14.1 \
+  --version v1.14.4 \
   --set installCRDs=true
 ```
 
-This tells helm to install chart version `v.1.14.1` of the `jetstack/cert-manager` package within the `cert-manager` namespace, and to install the required CRDs (custom resource definitions). The first `cert-manager` param is the name of the "release" which allows us to reference this installation as a whole.
+This tells helm to install chart version `v.1.14.4` of the `jetstack/cert-manager` package within the `cert-manager` namespace, and to install the required CRDs (custom resource definitions). The first `cert-manager` param is the name of the "release" which allows us to reference this installation as a whole.
 
 The command might take a few seconds to complete, but if successful you should see something similar to this:
 
 ```bash
 NAME: cert-manager
-LAST DEPLOYED: Sat Feb  3 06:30:36 2024
+LAST DEPLOYED: Tue Mar 19 08:54:36 2024
 NAMESPACE: cert-manager
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 NOTES:
-cert-manager v1.14.1 has been deployed successfully!
+cert-manager v1.14.4 has been deployed successfully!
 ```
 
 ## Configure a Certificate Issuer
@@ -257,9 +258,9 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-production-private-key
     solvers:
-      - http01:
-          ingress:
-            ingressClassName: nginx
+    - http01:
+        ingress:
+          ingressClassName: nginx
 ```
 
 This will configure a new cluster issuer using the Let's Encrypt ACME server, and specifies to use the `http01` solver, which will generate a key on your domain that Let's Encrypt will then verify to prove that you own the domain.
@@ -299,10 +300,10 @@ Using that access token create a new `docker-registry` secret within your cluste
 
 ```bash
 kubectl create secret docker-registry docker-hub-creds \
---docker-server=docker.io \
---docker-username=<username> \
---docker-password=<access-token> \
---docker-email=<email>
+  --docker-server=docker.io \
+  --docker-username=<username> \
+  --docker-password=<access-token> \
+  --docker-email=<email>
 ```
 
 This command creates a new secret of the `docker-registry` type that can be used for accessing a container registry. In this case we are naming the secret `docker-hub-creds`.
@@ -344,13 +345,13 @@ spec:
         project: yourdomain
     spec: 
       containers:
-        - name: yourdomain-pod
-          image: docker.io/jmalloc/echo-server
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+      - name: yourdomain-pod
+        image: docker.io/jmalloc/echo-server
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
       imagePullSecrets:
-        - name: docker-hub-creds
+      - name: docker-hub-creds
 ---
 apiVersion: v1
 kind: Service
@@ -360,8 +361,8 @@ spec:
   selector:
     project: yourdomain
   ports:
-    - port: 80
-      targetPort: 8080
+  - port: 80
+    targetPort: 8080
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -372,20 +373,20 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-    - hosts:
-      - yourdomain.com
-      secretName: yourdomain-cert
+  - hosts:
+    - yourdomain.com
+    secretName: yourdomain-cert
   rules:
-    - host: yourdomain.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: yourdomain-service
-                port:
-                  number: 80
+  - host: yourdomain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: yourdomain-service
+            port:
+              number: 80
 ```
 
 This configuration is actually 3 kubernetes manifests in 1, each of the manifests beginning with a `---`. There is a `Deployment` resource, a `Service` resource, and an `Ingress` resource.
@@ -419,13 +420,13 @@ And then we provide the pod template for the container we want to run and assign
         project: yourdomain
     spec: 
       containers:
-        - name: yourdomain-pod
-          image: docker.io/jmalloc/echo-server
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+      - name: yourdomain-pod
+        image: docker.io/jmalloc/echo-server
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
       imagePullSecrets:
-        - name: docker-hub-creds
+      - name: docker-hub-creds
 ```
 
 We specify our container image with the `image` key, identify the container port that the image is listening on with the `ports` key, and then provide our Docker Hub credentials with the `imagePullSecrets` key using the secret key name we [created earlier](#provide-access-to-your-container-registry) (only needed for private container registries).
@@ -448,8 +449,8 @@ spec:
   selector:
     project: yourdomain
   ports:
-    - port: 80
-      targetPort: 8080
+  - port: 80
+    targetPort: 8080
 ```
 
 Port 8080 is the `containerPort` we defined in the `Deployment` configuration.
@@ -476,25 +477,25 @@ Next we configure a `tls` section to enable HTTPS for our domain and specify a s
 
 ```yaml
   tls:
-    - hosts:
-      - yourdomain.com
-      secretName: yourdomain-cert
+  - hosts:
+    - yourdomain.com
+    secretName: yourdomain-cert
 ```
 
 Then finally we configure our routing rules to map our domain to the `yourdomain-service` we defined in the `Service` configuration.
 
 ```yaml
   rules:
-    - host: yourdomain.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: yourdomain-service
-                port:
-                  number: 80
+  - host: yourdomain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: yourdomain-service
+            port:
+              number: 80
 ```
 
 The `path` and `pathType` configuration is saying to match any path for the host specified that starts with "/" and route it to port 80 of the `yourdomain-service`.

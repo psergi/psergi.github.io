@@ -2,10 +2,11 @@
 layout: post
 title: How to Deploy Postgres on Kubernetes with S3 Backups
 categories:
-- Tech
-- Kubernetes
-- PostgreSQL
+  - Tech
+  - Kubernetes
+  - PostgreSQL
 date: 2024-02-21 07:27 -0800
+last_modified_at: 2024-03-19
 ---
 In this tutorial we will be deploying PostgreSQL into a Kubernetes cluster using CloudNativePG and enabling continuous backups to Amazon S3.
 
@@ -44,10 +45,10 @@ This should produce an output similar to this:
 
 ```bash
 NAME                 CHART VERSION  APP VERSION  DESCRIPTION
-cnpg/cloudnative-pg  0.20.1         1.22.1       CloudNativePG Helm Chart
+cnpg/cloudnative-pg  0.20.2         1.22.2       CloudNativePG Helm Chart
 ```
 
-The package name and the chart version is what we are looking for, in this case it is `cnpg/cloudnative-pg` and `0.20.1`.
+The package name and the chart version is what we are looking for, in this case it is `cnpg/cloudnative-pg` and `0.20.2`.
 
 Using these values run the following command to install the `cnpg/cloudnative-pg` package into your cluster:
 
@@ -56,16 +57,16 @@ helm install cnpg \
   cnpg/cloudnative-pg \
   --namespace cnpg-system \
   --create-namespace \
-  --version 0.20.1
+  --version 0.20.2
 ```
 
-This tells helm to install chart version `0.20.1` of the `cnpg/cloudnative-pg` package within the `cnpg-system` namespace. The first `cnpg` param is the name of the "release" which allows us to reference this installation as a whole.
+This tells helm to install chart version `0.20.2` of the `cnpg/cloudnative-pg` package within the `cnpg-system` namespace. The first `cnpg` param is the name of the "release" which allows us to reference this installation as a whole.
 
 The command might take a few seconds to complete, but if successful you should see something similar to this:
 
 ```bash
 NAME: cnpg
-LAST DEPLOYED: Fri Feb  9 06:46:47 2024
+LAST DEPLOYED: Tue Mar 19 09:06:43 2024
 NAMESPACE: cnpg-system
 STATUS: deployed
 REVISION: 1
@@ -164,8 +165,8 @@ Using the access key and secret from the previous step, create a new secret with
 
 ```bash
 kubectl create secret generic s3-creds \
---from-literal=ACCESS_KEY_ID=<access key here> \
---from-literal=SECRET_ACCESS_KEY=<secret key here>
+  --from-literal=ACCESS_KEY_ID=<access key here> \
+  --from-literal=SECRET_ACCESS_KEY=<secret key here>
 ```
 Replace `<access key here>` and `<secret key here>` with your S3 credentials.
 
@@ -481,27 +482,27 @@ metadata:
   name: vikunja
 spec:
   containers:
-    - name: vikunja
-      image: vikunja/vikunja
-      ports:
-        - containerPort: 3456
-      env:
-        - name: VIKUNJA_DATABASE_TYPE
-          value: postgres
-        - name: VIKUNJA_DATABASE_HOST
-          value: yourdomain-db-rw
-        - name: VIKUNJA_DATABASE_DATABASE
-          value: app
-        - name: VIKUNJA_DATABASE_USER
-          valueFrom:
-            secretKeyRef:
-              name: yourdomain-db-app 
-              key: username
-        - name: VIKUNJA_DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: yourdomain-db-app 
-              key: password
+  - name: vikunja
+    image: vikunja/vikunja
+    ports:
+    - containerPort: 3456
+    env:
+    - name: VIKUNJA_DATABASE_TYPE
+      value: postgres
+    - name: VIKUNJA_DATABASE_HOST
+      value: yourdomain-db-rw
+    - name: VIKUNJA_DATABASE_DATABASE
+      value: app
+    - name: VIKUNJA_DATABASE_USER
+      valueFrom:
+        secretKeyRef:
+          name: yourdomain-db-app
+          key: username
+    - name: VIKUNJA_DATABASE_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: yourdomain-db-app
+          key: password
 ```
 
 In the `env` section we are setting the following environment variables to connect to our database:
