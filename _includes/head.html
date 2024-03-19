@@ -15,4 +15,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
   <link rel="manifest" href="/assets/site.webmanifest">
   {% feed_meta %}
+  {% if jekyll.environment == "production" -%}
+  <script defer src="https://data.philsergi.com/api/load.js" data-website-id="55777f53-c3b9-49fd-821c-f2de445aaf7d"></script>
+  {% endif -%}
 </head>
