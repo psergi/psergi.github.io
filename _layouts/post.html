@@ -16,7 +16,7 @@ layout: default
     </div>
   </header>
 
-  <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}">
+  <div class="post__body{% if page.categories contains 'Tech' %} post__body--tech{% endif %}{% if page.categories contains 'Christianity' %} post__body--christianity{% endif %}">
     {% if page.last_modified_at %}
       <div class="post__last-modified">(Last Updated: {{ page.last_modified_at | date_to_string: "ordinal", "US" }})</div>
     {% endif %}
