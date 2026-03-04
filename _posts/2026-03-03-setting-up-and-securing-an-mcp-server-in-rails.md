@@ -731,7 +731,7 @@ module Oauth
       }
     end
 
-    # GET /.well-known/protected-resource/mcp
+    # GET /.well-known/oauth-protected-resource
     #
     def protected_resource
       render json: {
@@ -799,7 +799,7 @@ npx @modelcontextprotocol/inspector
 
 This will open a browser with the MCP Inspector tool running locally:
 
-![MCP Inspector Connect](/assets/images/mcp-inspector-1.png)
+![MCP Inspector Connect](/assets/images/mcp-inspector-connect.png)
 
 Next, update the MCP Inspector URL to `http://localhost:3000/mcp`, ensure the "Connection Type" is set to "Direct", and click "Connect".
 
@@ -807,7 +807,7 @@ This should take you through the OAuth flow in your app and redirect you back to
 
 If you then click the "Tools" tab and click "List Tools" you should see your tool listed with all of your configuration details:
 
-![MCP Inspector Connected](/assets/images/mcp-inspector-2.png)
+![MCP Inspector Tools](/assets/images/mcp-inspector-tools.png)
 
 If everything looks good, you can add the MCP server to other MCP clients for further testing.
 
