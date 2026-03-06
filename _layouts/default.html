@@ -9,7 +9,9 @@
 
     <main class="content" aria-label="Content">
       {{ content }}
+      {% unless page.hide_contact_footer %}
       <div class="content__footer content__footer--{{ page.layout }}"><a class="contact-box" href="#contact">Contact</a></div>
+      {% endunless %}
     </main>
     <script type="text/javascript">
       var prompts = document.querySelectorAll('.highlight .gp');

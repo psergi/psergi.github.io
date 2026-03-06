@@ -1,5 +1,9 @@
 <aside class="sidebar">
   <h1 class="sidebar__title"><a class="sidebar__title-link" href="/">{{ site.header }}</a></h1>
   <p class="sidebar__description">{{ site.description }}</p>
+  <nav class="sidebar__nav" aria-label="Sidebar navigation">
+    <a class="sidebar__nav-link{% if page.url == '/' or page.layout == 'post' %} sidebar__nav-link--active{% endif %}" href="/">Posts</a>
+    <a class="sidebar__nav-link{% if page.url == '/about' %} sidebar__nav-link--active{% endif %}" href="/about">About</a>
+  </nav>
   <p class="sidebar__quote">{{ site.quote }}</p>
 </aside>

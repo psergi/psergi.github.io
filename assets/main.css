@@ -480,12 +480,7 @@ a:focus,
 a:active {
   color: #0F1C2A;
   text-decoration: none;
-  transition-property: border-color;
   border-bottom: 3px solid transparent;
-  transition-property: border-color;
-  transition-duration: 500ms;
-  -webkit-transition-property: border-color;
-  -webkit-transition-duration: 500ms;
 }
 
 .sidebar {
@@ -528,9 +523,40 @@ a:active {
 }
 
 .sidebar__quote {
-  margin-top: auto;
+  margin-top: 14px;
   font-size: .75em;
   color: #677b8a;
+}
+
+.sidebar__nav {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #2a3e52;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.sidebar__nav-link,
+.sidebar__nav-link:visited,
+.sidebar__nav-link:focus,
+.sidebar__nav-link:active {
+  color: #9bb0c2;
+  border-bottom: 1px solid transparent;
+  font-family: Courier New;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.sidebar__nav-link:hover {
+  color: #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+.sidebar__nav-link--active,
+.sidebar__nav-link--active:visited,
+.sidebar__nav-link--active:focus,
+.sidebar__nav-link--active:active {
+  color: #e7e7e7;
+  border-bottom: 1px solid #51d6d6;
 }
 
 .content {
@@ -790,6 +816,140 @@ a:active {
 	padding: 4px 8px;
 }
 
+.about-page {}
+.about-page__header {
+  max-width: 800px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+.about-page__title {
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: normal;
+  margin: 0px;
+}
+.about-page__body {
+  max-width: 675px;
+}
+.about-page__hero {
+  background: linear-gradient(135deg, #0f1c2a 0%, #13324b 100%);
+  color: #e7f3fb;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+}
+.about-page__hero-title {
+  font-family: Courier New;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 10px;
+  color: #7de0df;
+}
+.about-page__hero-content {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.about-page__tech {
+  margin: 0 0 20px;
+}
+.about-page__tech-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2f4558;
+  font-family: Courier New;
+}
+.about-page__tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.about-page__tech-list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: 1px solid #d8dee5;
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 14px;
+}
+.about-page__tech-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Courier New;
+  font-size: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.about-page__tech-icon--ruby {
+  background: #8a0f07;
+}
+
+.about-page__tech-icon--rails {
+  background: #c62026;
+}
+
+.about-page__tech-icon--go {
+  background: #00add8;
+}
+
+.about-page__tech-icon--k8s {
+  background: #316ce6;
+}
+
+.about-page__tech-icon--js {
+  background: #f7df1e;
+  color: #202020;
+}
+
+.about-page__tech-icon--ai {
+  background: #8b5cf6;
+}
+.about-page__links {
+  margin-top: 8px;
+}
+.about-page__links-title {
+  font-weight: 500;
+}
+.about-page__links-list {
+  display: flex;
+  gap: 12px;
+}
+.about-page__links-link {
+  font-family: courier new;
+  background: #0f1c2a;
+  color: #fff;
+  padding: 5px 8px;
+  height: 26px;
+  font-size: 14px;
+  border-bottom: 0px;
+}
+.about-page__links-link:hover,
+.about-page__links-link:active,
+.about-page__links-link:visited,
+.about-page__links-link:focus {
+  color: #fff;
+  border-bottom: 0px;
+}
+
 @media only screen and (max-width: 1024px){
   .sidebar {
     width: 100%;
@@ -803,6 +963,9 @@ a:active {
   }
   .sidebar__description {
     padding: 20px 20px;
+  }
+  .sidebar__nav {
+    justify-content: center;
   }
   .content {
     margin-left: 0px;
