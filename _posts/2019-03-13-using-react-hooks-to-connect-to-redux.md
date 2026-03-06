@@ -17,14 +17,14 @@ While digging into the docs on [React Hooks](https://reactjs.org/docs/hooks-intr
 Create a new React app:
 
 ```terminal
-$ npx create-react-app my-app --use-npm
+npx create-react-app my-app --use-npm
 ```
 
 Install Redux:
 
 ```terminal
-$ cd my-app
-$ npm install --save redux
+cd my-app
+npm install --save redux
 ```
 
 ## Create a Redux Store
@@ -267,7 +267,7 @@ There is nothing special here, we are just rendering the `<ItemList>` component 
 If your app is not currently running, start it with the following command:
 
 ```terminal
-$ npm start
+npm start
 ```
 
 You should be presented with the Item List and an input box allowing you to add items:

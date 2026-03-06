@@ -14,18 +14,35 @@
       {% endunless %}
     </main>
     <script type="text/javascript">
-      var prompts = document.querySelectorAll('.highlight .gp');
-      for (var i = 0; i < prompts.length; ++i) {
-        if (prompts[i].textContent === '$') {
-          prompts[i].classList.add('no-select');
-        }
+      var copyIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 1H6c-1.1 0-2 .9-2 2v14h2V3h10V1zm3 4H10c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H10V7h9v14z"></path></svg>';
+      var flashCopyState = function(button, state) {
+        button.setAttribute('data-copy-state', state);
+        window.setTimeout(function() {
+          button.removeAttribute('data-copy-state');
+        }, 300);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        document.querySelectorAll('pre.highlight').forEach(function(pre) {
+          var wrapper = pre.parentElement;
+          var code = pre.querySelector('code');
+          if (!wrapper || !wrapper.classList.contains('highlight') || !code) return;
+          wrapper.classList.add('highlight--copyable');
+          wrapper.insertAdjacentHTML('afterbegin', '<button type="button" class="highlight__copy-button" aria-label="Copy code to clipboard" title="Copy code">' + copyIcon + '</button>');
+          wrapper.querySelector('.highlight__copy-button').addEventListener('click', function() {
+            navigator.clipboard.writeText(code.innerText).then(function() {
+              flashCopyState(this, 'success');
+            }.bind(this), function() {
+              flashCopyState(this, 'error');
+            }.bind(this));
+          });
+        });
       }
       var c = document.querySelector(".contact-box");
       var p = [".c","i", "g", "er", "s", "l", "i", "ph", "@", "l", "hi", "p", "o:", "lt", "mai"];
       var r = p.reverse();
       var h = '';
       for (var i = 0; i < r.length; ++i) { h += r[i]; }
-      c.href = h + "om";
+      if (c) { c.href = h + "om"; }
     </script>
   </body>
 </html>

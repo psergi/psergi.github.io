@@ -1015,7 +1015,11 @@ code {
   font-family: 'JetBrains Mono', monospace;
 }
 div.highlight {
+  position: relative;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+}
+div.highlight.highlight--copyable {
+  margin-top: 0;
 }
 pre.highlight {
   padding: 15px;
@@ -1025,6 +1029,45 @@ pre.highlight {
   overflow-x: auto;
   border-radius: 4px;
   color: #c0c8d5;
+}
+.highlight__copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #c0c8d5;
+  line-height: 0;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+.highlight__copy-button:hover {
+  opacity: 1;
+}
+.highlight__copy-button:focus {
+  outline: none;
+}
+.highlight__copy-button:focus-visible {
+  outline: 2px solid #7ad4d6;
+  outline-offset: 2px;
+}
+.highlight__copy-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.highlight__copy-button[data-copy-state="success"] {
+  color: #9be3e3;
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(155, 227, 227, 0.9));
+}
+.highlight__copy-button[data-copy-state="error"] {
+  color: #ffd4de;
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 212, 222, 0.9));
 }
 .highlight .hll { background-color: #313b48 }
 .highlight .c { color: #6e7e91; font-style: italic } /* Comment */
@@ -1109,14 +1152,6 @@ pre.highlight {
 }
 .highlight .gi .x {
   background-color: rgba(81, 214, 214, 0.24);
-}
-.highlight .no-select {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
 }
 .highlight .s1 + .go {
   color: #8ebaa4;
